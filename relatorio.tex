@@ -138,7 +138,7 @@ brazil,			% idioma principal do documento
 	
 	\section{Formas de transferência de calor}\label{sec:transferencia}
 	
-	O calor se transfere de três maneiras \cite{halliday}. Na \emph{condução}, a energia passa de uma região a outra de um material por colisões entre suas partículas, como o calor que penetra no solo. A taxa de transferência de energia por uma placa de área $A$ e espessura $L$, com faces às temperaturas $T_Q$ e $T_F$ ($T_Q > T_F$), é
+	O calor se transfere de três maneiras \cite{halliday}. Na condução, a energia passa de uma região a outra de um material por colisões entre suas partículas, como o calor que penetra no solo. A taxa de transferência de energia por uma placa de área $A$ e espessura $L$, com faces às temperaturas $T_Q$ e $T_F$ ($T_Q > T_F$), é
 	
 		\begin{equation}
 		P_{\mathrm{cond}} = k \, A \, \frac{T_Q - T_F}{L},
@@ -352,6 +352,16 @@ brazil,			% idioma principal do documento
 		\end{tabular}
 		\fonte{Elaborado pelos autores com dados do USGS(\citeyear{usgs}) e do INMET(\citeyear{inmet2026}).}
 	\end{table}
+	
+	A Figura~\ref{fig:estacao} mostra a evolução horária da temperatura do ar e da umidade relativa no dia da imagem. Na passagem do satélite, o ar estava em aquecimento e secagem rápidos. Interpolando linearmente entre os registros das 10h e das 11h, os valores às 10h17 seriam \SI{22.28}{\celsius} e 55,3\%, diferenças de \SI{0.28}{\celsius} e 1,7 ponto percentual em relação ao registro das 10h, que foi o usado nos cálculos.
+	
+	\begin{figure}[htb]
+		\centering
+		\caption{Temperatura do ar e umidade relativa em 12/04/2026, com a passagem do Landsat às 10h17 (13h17 UTC).}
+		\includegraphics[width=0.75\textwidth]{img/graph.png}
+		\label{fig:estacao}
+		\small \fonte{Elaborado pelos autores (2026) com dados do INMET (\citeyear{inmet2026}).}
+	\end{figure}
 	
 	Para o registro das 10h, com temperatura do ar de \SI{22.0}{\celsius} e umidade relativa de 57\%, o potencial hídrico do ar é de aproximadamente \SI{-7.66e7}{\pascal} (cerca de \SI{-76.6}{\mega\pascal}). A evapotranspiração de referência estimada pelo modelo MJS é de cerca de \SI{0.25}{\milli\metre\per\hour}, o que corresponde a aproximadamente \SI{171}{\watt\per\metre\squared} de calor latente.
 	
