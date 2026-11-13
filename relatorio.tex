@@ -108,9 +108,10 @@ brazil,			% idioma principal do documento
 	\setlength{\absparsep}{18pt}
 	\begin{resumo}
 		
+		A cobertura do solo influencia o comportamento térmico das superfícies, uma vez que diferentes materiais e tipos de vegetação apresentam características distintas de absorção, armazenamento e transferência de energia. Nesse contexto, este trabalho teve como objetivo comparar a temperatura de superfície de fragmentos florestais e áreas antropizadas no Campus Politécnico da Universidade Federal do Paraná (UFPR), em Curitiba, relacionando as diferenças observadas aos princípios da termodinâmica. Para isso, foi utilizada uma imagem do satélite Landsat 8-9, referente a 12 de abril de 2026, para estimar a temperatura de superfície das duas classes de cobertura. Também foram utilizados dados de temperatura e umidade relativa do ar, obtidos na estação meteorológica do Instituto Nacional de Meteorologia (INMET) para estimar a evapotranspiração de referência por meio do modelo Moretti-Jerszurki-Silva. Os resultados indicaram temperatura média de 26,61 °C nos fragmentos florestais e 30,48 °C nas áreas antropizadas, representando uma diferença de 3,87 °C. Essa diferença pode ser interpretada a partir do balanço de energia da superfície, considerando a contribuição da evapotranspiração e do sombreamento proporcionado pela vegetação para a dissipação e distribuição da energia recebida. Os resultados demonstram como os conceitos da termodinâmica podem ser aplicados à compreensão das diferenças térmicas entre ambientes com distintas características de cobertura do solo.
 		
 		\noindent
-		\textbf{Palavras-chave}: 
+		\textbf{Palavras-chave}:  Termodinâmica; temperatura de superfície; cobertura do solo; evapotranspiração; Landsat.
 	\end{resumo}
 	
 	% ---
@@ -128,7 +129,10 @@ brazil,			% idioma principal do documento
 	
 	\chapter{Introdução}
 	
-	Blá blá blá
+	A lei da condução térmica demonstra que diferentes materiais possuem capacidades distintas de conduzir o calor \cite{halliday}. Sob essa visão, a distribuição da temperatura nas superfícies terrestres não acontece de forma homogênea, uma vez que materiais distintos interagem de diferentes maneiras com a energia. Portanto, áreas urbanas tendem a alterar o microclima, uma vez que as construções impermeáveis das cidades retêm muito calor \cite{ribeiro2016clima}. Em contraste, ambientes com cobertura vegetal armazenam menos calor, oferecem sombra e autorregulam-se por meio da evapotranspiração, gerando um maior conforto térmico. 
+
+	A partir dos princípios da termodinâmica conseguimos analisar, comparar e compreender essas diferenças. Ao compararmos as temperaturas em diferentes ambientes conseguimos compreender o compartimento térmico divergente. Assim, este trabalho teve como objetivo comparar a temperatura de superfície de fragmentos florestais e áreas antropizadas no Campus Politécnico da Universidade Federal do Paraná (UFPR), em Curitiba, utilizando dados do satélite Landsat. Adicionalmente, buscou-se relacionar as diferenças observadas aos processos de transferência de calor e ao balanço de energia da superfície, discutindo a contribuição dos conceitos da termodinâmica para a compreensão das condições térmicas do ambiente.
+
 	
 	\chapter{Fundamentação teórica}
 	
@@ -248,27 +252,32 @@ brazil,			% idioma principal do documento
 	
 	\section{Dados de satélite}
 	
-	Foi utilizada imagem do satélite Landsat 8-9, sensor OLI/TIRS, Coleção 2, Nível 2, obtida no portal do USGS \cite{usgs}. A imagem é de 12/04/2026, com passagem às 10h17 (horário de Brasília). Utilizou-se o produto de temperatura de superfície ST\_B10, derivado da banda termal 10 (\SIrange{10.6}{11.2}{\micro\metre}). O produto é distribuído com pixels de \SI{30}{\metre}. A data foi escolhida por apresentar céu sem nuvens sobre o campus. Os valores digitais foram convertidos em Kelvin pelos fatores de escala fornecidos nos metadados da cena, e em seguida, em graus Celsius: 
+	Foi utilizada imagem do satélite Landsat 8-9, sensor OLI/TIRS, Coleção 2, Nível 2, obtida no portal do USGS \cite{usgs}. A imagem é de 12/04/2026, com passagem às 10h17 (horário de Brasília). Utilizou-se o produto de temperatura de superfície ST\_B10, derivado da banda termal 10 (\SIrange{10.6}{11.2}{\micro\metre}). O produto é distribuído com pixels de \SI{30}{\metre}. A data foi escolhida por apresentar céu sem nuvens sobre o campus. 
+	Os polígonos foram delimitados manualmente, de forma digital, por fotointerpretação de imagens de satélite do Google, carregadas como camada no QGIS \cite{google}.
+	
+	\section{Dados da estação meteorológica}
+	
+	Os valores de temperatura do ar e de umidade relativa vieram da estação meteorológica automática do Instituto Nacional de Meteorologia (INMET), em Curitiba (código A807), situada no campus Politécnico, a \SI{923}{\metre} de altitude \cite{inmet2026}. Os dados são fornecidos em UTC e foram convertidos para o horário local. Para a comparação, usou-se o registro das 10h locais (13h UTC) do mesmo dia da imagem, o mais próximo da passagem do satélite, com temperatura de \SI{22.0}{\celsius} e umidade relativa de 57\%.
+	
+	Todas as áreas análisadas ficam todas dentro de um raio de aproximadamente  \SI{1,1}{\kilo\metre} da estação.
+	
+	\subsection{Temperatura de superfície}
+	
+	Os valores digitais foram convertidos em Kelvin pelos fatores de escala fornecidos nos metadados da cena, e em seguida, em graus Celsius: 
 	
 	\begin{equation}
 		T = \num{0.00341802} \, \mathrm{DN} + \num{149.0}, \qquad T_C = T - 273{,}15.
 	\end{equation}
 	
-	O produto já faz correções atmosféricas de de emissividade, de modo que não foi necessário tratamento além da conversão.
+	O produto já faz correções atmosféricas e de emissividade, de modo que não foi necessário tratamento além da conversão.
 	
-	Os polígonos foram delimitados manualmente, de forma digital, por fotointerpretação de imagens de satélite do Google, carregadas como camada no QGIS \cite{google}.
-	
-	\section{Dados da estação meteorológica}
-	
-	Os valores de temperatura do ar e de umidade relativa vieram da estação meteorológica automática do Instituto Nacional de Meteorologia (INMET), em Curitiba (código A807), situada no campus Politécnico, a \SI{923}{\metre} de altitude \cite{inmet2026}. A estação registra dados horários, com sensor de temperatura a \SI{2}{\metre} de altura. Os dados são fornecidos em UTC e foram convertidos para o horário local. Para a comparação, usou-se o registro das 10h locais (13h UTC) do mesmo dia da imagem, o mais próximo da passagem do satélite, com temperatura de \SI{22.0}{\celsius} e umidade relativa de 57\%. CHECAR DISTANCIA
-	
-	\subsection{Temperatura de superfície}
+	Para comparar a superfície com o ar, calculou-se a diferença:
 	
 		\begin{equation}
 		\Delta T = T_{\text{superfície}} - T_{\text{ar}},
 	\end{equation}
 	
-	em que $T_{\text{ar}}$ é a temperatura do ar registrada pela estação.
+	\noindent em que $T_{\text{ar}}$ é a temperatura do ar registrada pela estação.
 	
 	\section{Evapotranspiração de referência}
 	
@@ -293,9 +302,9 @@ brazil,			% idioma principal do documento
 		ET_0 = \alpha + \beta \, \Psi_{\mathrm{ar}},
 	\end{equation}
 	
-	em que $\alpha = \SI{-0.024}{\milli\metre\per\hour}$ e $\beta = \SI{-3.595e-9}{\milli\metre\per\hour\per\pascal}$ são os coeficientes obtidos para Curitiba na calibração horária do modelo em relação ao método de Penman-Monteith padrão, com coeficiente de correlação $r = 0{,}66$ \cite{dossantos2021}. Os cálculos do modelo foram feitos no software R.
+	\noindent em que $\alpha = \SI{-0.024}{\milli\metre\per\hour}$ e $\beta = \SI{-3.595e-9}{\milli\metre\per\hour\per\pascal}$ são os coeficientes obtidos para Curitiba na calibração horária do modelo em relação ao método de Penman-Monteith padrão, com coeficiente de correlação $r = 0{,}66$ \cite{dossantos2021}. Os cálculos do modelo foram feitos no software R.
 	
-	Para expressar a demanda evaporativa como fluxo de energia, converte-se $ET_0$ em calor latente. Como \SI{1}{\milli\metre} de água sobre \SI{1}{\metre\squared} corresponde a \SI{1}{\kilo\gram}, evaporar \SI{1}{\milli\metre} em uma hora exige, por $Q = L_V \, m$, $\SI{2.45e6}{\joule}$ por metro quadrado, ou seja, uma taxa $Q/(A\,t) = 2{,}45\times10^{6}/3600 \approx \SI{680}{\watt\per\metre\squared}$. Assim,
+	Para expressar a demanda evaporativa como fluxo de energia, converte-se $ET_0$ em calor latente. Assim:
 	
 	\begin{equation}
 		LE_0 \approx 680 \, ET_0,
